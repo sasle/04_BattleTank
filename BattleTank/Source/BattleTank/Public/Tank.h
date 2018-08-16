@@ -29,7 +29,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Firing)
 	void Fire();
 
-
 protected:
 	UTankAimingComponent_ * TankAimingComponent = nullptr;
 
