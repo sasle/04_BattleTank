@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Danubio Inc.
 
 #pragma once
 
@@ -27,20 +27,21 @@ class BATTLETANK_API UTankAimingComponent_ : public UActorComponent
 
 
 public:	
-	// Sets default values for this component's properties
-	UTankAimingComponent_();
 
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-	void SetTurretReference(UTankTurret* TurretToSet);
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void Initialise(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
 protected:
 
 	UPROPERTY(BlueprintReadOnly, Category = "State")
-	EFiringState FiringState = EFiringState::Aiming;
+	EFiringState FiringState = EFiringState::Locked;
 
 private:
+	// Sets default values for this component's properties
+	UTankAimingComponent_();
+
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 	
