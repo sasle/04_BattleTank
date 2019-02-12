@@ -49,7 +49,7 @@ void UTankAimingComponent_::TickComponent(float DeltaTime, enum ELevelTick TickT
 	
 }
 
-int UTankAimingComponent_::GetRoundsLeft() const
+int32 UTankAimingComponent_::GetRoundsLeft() const
 {
 	return RoundsLeft;
 }
