@@ -19,15 +19,22 @@ protected:
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void FoundAimingComponent(UTankAimingComponent_* AimCompRef);
+
+	UFUNCTION()
+	void OnPossessedTankDeath();
+
 private:
 
 	virtual void BeginPlay() override;
 	
+	virtual void SetPawn(APawn* InPawn) override;
+
 	virtual void Tick(float DeltaTime) override;
 
 	// Start the tank moving the barrel so that a shot would hit where 
 	// the crosshair intersects the world
 	void AimTowardsCrosshair();
+
 
 	// Return an OUT parameter, true if hit landscape
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
